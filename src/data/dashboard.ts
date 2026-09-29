@@ -40,3 +40,44 @@ export const chartConfig = {
     label: "Vendas",
   },
 };
+
+export const periodOptions = [
+  { value: "today", label: "Hoje" },
+  { value: "7d", label: "Últimos 7 dias" },
+  { value: "30d", label: "Últimos 30 dias" },
+  { value: "month", label: "Este mês" },
+];
+
+export const salesDataByPeriod = {
+  today: [
+    { date: "Hoje", sales: 12400 },
+  ],
+
+  "7d": [
+    { date: "23/09", sales: 8200 },
+    { date: "24/09", sales: 10400 },
+    { date: "25/09", sales: 7800 },
+    { date: "26/09", sales: 12600 },
+    { date: "27/09", sales: 9800 },
+    { date: "28/09", sales: 14300 },
+    { date: "29/09", sales: 11200 },
+  ],
+
+  "30d": [
+    { date: "01/09", sales: 8200 },
+    { date: "05/09", sales: 10400 },
+    { date: "10/09", sales: 7800 },
+    { date: "15/09", sales: 12600 },
+    { date: "20/09", sales: 9800 },
+    { date: "25/09", sales: 14300 },
+    { date: "29/09", sales: 11200 },
+  ],
+
+  month: [
+    { date: "01/09", sales: 8200 },
+    { date: "08/09", sales: 10400 },
+    { date: "15/09", sales: 7800 },
+    { date: "22/09", sales: 12600 },
+    { date: "29/09", sales: 11200 },
+  ],
+};

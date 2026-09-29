@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -5,21 +7,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-
-
-
-
-import {
-  chartConfig,
-  salesData,
-} from "@/data/dashboard";
+import { periodOptions, salesDataByPeriod } from "@/data/dashboard";
 
 import { MetricCards } from "@/components/dashboard/MetricCards";
 
 import { SalesChart } from "@/components/dashboard/SalesChart";
 
 export default function Home() {
+  const [period, setPeriod] = useState("30d");
+  const salesData = salesDataByPeriod[period as keyof typeof salesDataByPeriod];
+
   return (
     <main className="flex flex-1 flex-col gap-6 p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -31,23 +28,31 @@ export default function Home() {
           </p>
         </div>
 
-        <Select defaultValue="30d">
+        <Select
+          value={period}
+          onValueChange={(value) => {
+            if (value) {
+              setPeriod(value);
+            }
+          }}
+        >
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Selecione o período" />
           </SelectTrigger>
 
           <SelectContent>
-            <SelectItem value="today">Hoje</SelectItem>
-            <SelectItem value="7d">Últimos 7 dias</SelectItem>
-            <SelectItem value="30d">Últimos 30 dias</SelectItem>
-            <SelectItem value="month">Este mês</SelectItem>
+            {periodOptions.map((period) => (
+              <SelectItem key={period.value} value={period.value}>
+                {period.label}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
 
       <MetricCards />
 
-      <SalesChart />
+      <SalesChart data={salesData} />
     </main>
   );
 }

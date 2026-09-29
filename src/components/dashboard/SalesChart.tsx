@@ -19,12 +19,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import {
-  chartConfig,
-  salesData,
-} from "@/data/dashboard";
+import { chartConfig } from "@/data/dashboard";
 
-export function SalesChart() {
+export function SalesChart({
+  data,
+}: {
+  data: { date: string; sales: number }[];
+}) {
   return (
     <Card>
       <CardHeader>
@@ -38,7 +39,7 @@ export function SalesChart() {
         >
           <AreaChart
             accessibilityLayer
-            data={salesData}
+            data={data}
             margin={{
               left: 12,
               right: 12,
