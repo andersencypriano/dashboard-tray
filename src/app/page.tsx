@@ -7,7 +7,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { periodOptions, salesDataByPeriod } from "@/data/dashboard";
+import {
+  metricsByPeriod,
+  periodOptions,
+  salesDataByPeriod,
+} from "@/data/dashboard";
 
 import { MetricCards } from "@/components/dashboard/MetricCards";
 
@@ -16,6 +20,7 @@ import { SalesChart } from "@/components/dashboard/SalesChart";
 export default function Home() {
   const [period, setPeriod] = useState("30d");
   const salesData = salesDataByPeriod[period as keyof typeof salesDataByPeriod];
+  const metrics = metricsByPeriod[period as keyof typeof metricsByPeriod];
 
   return (
     <main className="flex flex-1 flex-col gap-6 p-6">
@@ -50,7 +55,7 @@ export default function Home() {
         </Select>
       </div>
 
-      <MetricCards />
+      <MetricCards metrics={metrics}/>
 
       <SalesChart data={salesData} />
     </main>

@@ -1,13 +1,15 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { metrics } from "@/data/dashboard";
-
-export function MetricCards() {
+export function MetricCards({
+  metrics,
+}: {
+  metrics: {
+    title: string;
+    value: string;
+    variation: string;
+    description: string;
+  }[];
+}) {
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {metrics.map((metric) => (
@@ -19,9 +21,7 @@ export function MetricCards() {
           </CardHeader>
 
           <CardContent>
-            <div className="text-2xl font-bold">
-              {metric.value}
-            </div>
+            <div className="text-2xl font-bold">{metric.value}</div>
 
             <p className="text-xs text-muted-foreground">
               <span className="font-medium text-emerald-600">

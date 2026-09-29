@@ -81,3 +81,89 @@ export const salesDataByPeriod = {
     { date: "29/09", sales: 11200 },
   ],
 };
+
+
+export const metricsByPeriod = {
+  today: [
+    {
+      title: "Vendas",
+      value: "R$ 12.400,00",
+      variation: "+5,2%",
+      description: "vs. período anterior",
+    },
+    {
+      title: "Pedidos",
+      value: "18",
+      variation: "+12,5%",
+      description: "vs. período anterior",
+    },
+    {
+      title: "Clientes",
+      value: "42",
+      variation: "+8,1%",
+      description: "vs. período anterior",
+    },
+    {
+      title: "Conversão",
+      value: "3,12%",
+      variation: "+0,28 p.p.",
+      description: "vs. período anterior",
+    },
+  ],
+
+  "7d": [
+    {
+      title: "Vendas",
+      value: "R$ 68.420,00",
+      variation: "+9,8%",
+      description: "vs. período anterior",
+    },
+    {
+      title: "Pedidos",
+      value: "94",
+      variation: "+6,7%",
+      description: "vs. período anterior",
+    },
+    {
+      title: "Clientes",
+      value: "318",
+      variation: "+4,9%",
+      description: "vs. período anterior",
+    },
+    {
+      title: "Conversão",
+      value: "2,91%",
+      variation: "+0,21 p.p.",
+      description: "vs. período anterior",
+    },
+  ],
+
+  "30d": metrics,
+
+  month: [
+    {
+      title: "Vendas",
+      value: "R$ 84.250,00",
+      variation: "+12,5%",
+      description: "vs. período anterior",
+    },
+    {
+      title: "Pedidos",
+      value: "126",
+      variation: "+8,6%",
+      description: "vs. período anterior",
+    },
+    {
+      title: "Clientes",
+      value: "1.842",
+      variation: "+5,2%",
+      description: "vs. período anterior",
+    },
+    {
+      title: "Conversão",
+      value: "2,84%",
+      variation: "+0,34 p.p.",
+      description: "vs. período anterior",
+    },
+  ],
+};
